@@ -1,0 +1,463 @@
+/* ==UserStyle==
+@name Fastmail Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/fastmail
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/fastmail
+@version 2000.01.01
+@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/fastmail/catppuccin.user.less
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Afastmail
+@description Soothing pastel theme for Fastmail
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@import "https://userstyles.catppuccin.com/lib/lib.less";
+
+@-moz-document domain("fastmail.com") {
+  :root.t-light {
+    #catppuccin(@lightFlavor);
+  }
+
+  :root.t-dark {
+    #catppuccin(@darkFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    /* --- General Colors --- */
+    --ui-critical-color-bg: @surface0;
+    --ui-critical-color-fg-strong: @red;
+    --ui-warning-color-bg: @surface0;
+    --ui-warning-color-border: @peach;
+    --ui-snooze-color-bg: @surface1;
+    --ui-snooze-color-fg: @text;
+
+    /* --- Theme Colors --- */
+    --theme-color-accent-60: fade(@accent, 60%);
+    --theme-color-accent-100: @accent;
+    --theme-color-accent-110: mix(@accent, @text, 80%);
+    --theme-color-accent-120: mix(@accent, @text, 90%);
+
+    --ui-warning-color-fg: @peach;
+    --ui-warning-color-border: @peach;
+
+    --ui-informative-color-bg: @surface0;
+    --ui-informative-color-border: @surface1;
+    --ui-informative-color-fg: @accent;
+    --ui-informative-color-fg-strong: @text;
+
+    --ui-success-color-bg: @surface0;
+    --ui-success-color-fg-strong: @green;
+    --ui-success-color-border: @green;
+
+    --ui-critical-color-fg: @red;
+    --ui-critical-color-bg: @surface0;
+    --ui-critical-color-fg-strong: @red;
+    --ui-critical-color-border: @surface2;
+
+    /* --- Page Structure --- */
+    --ui-pageheader-color-bg: @mantle;
+
+    --theme-color-header: @crust;
+    --theme-color-headerStop: @mantle;
+    --theme-color-header-fg: @text;
+    --theme-color-sidebar: @subtext0;
+
+    --ui-page-color-bg: @base;
+    --ui-page-color-bg-focused: @surface0;
+    --ui-page-color-bg-active: @surface0;
+    --ui-page-color-bg-hover: @surface0;
+    --ui-page-color-bg-backdrop: @mantle;
+    --ui-page-color-bg-selected: @surface1;
+
+    --ui-page-color-border: @surface2;
+    --ui-page-color-border-subtle: @surface0;
+    --ui-page-color-border-medium: @surface1;
+
+    --ui-page-color-fg: @text;
+    --ui-page-color-fg-subtle: @subtext1;
+    --ui-page-color-fg-vsubtle: @subtext0;
+    --ui-page-color-fg-action: @accent;
+
+    --ui-page-color-bg-fade60: fade(@surface0, 60%);
+    --ui-page-color-bg-fade80: fade(@surface0, 80%);
+    --ui-page-color-bg-fade90: fade(@surface0, 90%);
+
+    --ui-page-shadow: 0 3px 12px @crust;
+    --ui-page-main-shadow: 0 3px 12px @crust;
+
+    --ui-altsurface-color-bg: @surface0;
+    --ui-altsurface-color-bg-focused: @surface1;
+
+    --ui-layer-color-border-divider: @surface2;
+
+    /* --- Sidebar --- */
+    --ui-sidebar-color-bg: @mantle;
+    --ui-sidebar-color-bg-selected: @surface0;
+    --ui-sidebar-color-fg: @text;
+
+    /* --- Inputs & Search --- */
+    --ui-pageheader-search-color-border: @surface1;
+    --ui-searchinput-color-bg: @base;
+    --ui-input-color-bg: @base;
+    --ui-input-color-bg-active: @surface0;
+    --ui-input-color-border: @surface2;
+    --ui-input-color-border-hover: @overlay1;
+    --ui-input-focused-color-border: @accent;
+    --ui-input-focused-color-outline: fade(@accent, 20%);
+    --ui-input-icon-color-stroke: @subtext0;
+
+    --ui-input-disabled-color-bg: @surface0;
+    --ui-input-disabled-color-fg: @overlay1;
+    --ui-input-disabled-color-border: @surface1;
+
+    --ui-input-activated-color-bg: @accent;
+    --ui-input-activated-color-bg-hover: mix(@accent, @text, 80%);
+    --ui-input-activated-color-fg: @base;
+
+    --ui-toggle-color-bg: @overlay0;
+
+    /* --- Buttons --- */
+    --ui-button-cta-color-bg: @surface1;
+    --ui-button-cta-color-bg-hover: @surface2;
+    --ui-button-cta-color-bg-active: @overlay0;
+    --ui-button-cta-color-bg-disabled: @surface0;
+    --ui-button-cta-color-fg: @text;
+    --ui-button-cta-color-shadow: 0 0 0 1px @surface2;
+
+    --ui-button-cta-color-danger-bg: @surface1;
+    --ui-button-cta-color-danger-bg-hover: @surface2;
+    --ui-button-cta-color-danger-bg-active: @overlay0;
+    --ui-button-cta-color-danger-bg-disabled: @surface0;
+
+    --ui-button-simple-color-bg: @surface0;
+    --ui-button-simple-color-bg-disabled: @surface0;
+    --ui-button-simple-color-bg-hover: @surface1;
+    --ui-button-simple-color-bg-active: @surface2;
+    --ui-button-simple-color-fg: @text;
+    --ui-button-simple-color-fg-active: @text;
+    --ui-button-simple-color-fg-disabled: @overlay1;
+    --ui-button-simple-color-border: @surface2;
+    --ui-button-simple-color-border-disabled: @surface1;
+    --ui-button-simple-shadow: 0 1px 2px fade(@overlay0, 30%);
+
+    --ui-button-danger-color-fg: @red;
+
+    --ui-button-subtle-color-fg: @subtext0;
+    --ui-button-subtle-color-fg-hover: @text;
+    --ui-button-subtle-color-bg-hover: @surface0;
+    --ui-button-subtle-color-bg-active: @surface1;
+
+    /* --- Calendar --- */
+    --ui-today-color-bg: @surface0;
+    --ui-today-color-fg: @accent;
+
+    /* --- Other UI Elements --- */
+    --ui-kbfocus-color-fg: @accent;
+
+    --ui-icon-unread-color-fill-isunread: @accent;
+    --ui-icon-unread-color-fill-isread: @overlay1;
+
+    --ui-icon-star-color-fill-on: @yellow;
+    --ui-icon-star-color-stroke-on: @yellow;
+
+    --ui-invitationicon-color-bg: @surface1;
+    --ui-icon-color-stroke: @accent;
+
+    --ui-notification-color-bg: @surface0;
+    --ui-notification-color-fg: @text;
+
+    --ui-notification-action-color-bg: @surface1;
+    --ui-notification-action-color-bg-hover: @surface2;
+
+    --ui-badge-color-bg: @surface1;
+
+    --ui-snooze-color-bg: @surface0;
+    --ui-snooze-color-fg: @text;
+    --ui-snooze-color-border: @surface2;
+
+    --ui-bottomtoolbar-color-bg: @surface0;
+    --ui-bottomtoolbar-color-fg: @text;
+    --ui-bottomtoolbar-icon-color-primary: @subtext1;
+    --ui-bottomtoolbar-icon-color-secondary: @subtext0;
+
+    --ui-layer-color-bg-withblur: fade(@surface0, 70%);
+    --ui-layer-color-bg: @surface0;
+    --ui-layer-color-border: @surface2;
+
+    --ui-card-color-border: @surface1;
+    --ui-card-shadow: 0 3px 8px fade(@crust, 50%);
+
+    --ui-icon-pin-color-stroke: @accent;
+    --ui-icon-pin-color-fill: @accent;
+
+    --ui-memo-color-bg-stop1: @surface1;
+    --ui-memo-color-bg-stop2: @surface2;
+
+    /* --- Quotes --- */
+    --ui-quote-color-bg-1: @surface0;
+    --ui-quote-color-fg-1: @text;
+    --ui-quote-color-bg-2: @surface1;
+    --ui-quote-color-fg-2: @text;
+    --ui-quote-color-bg-3: @surface2;
+    --ui-quote-color-fg-3: @text;
+    --ui-quote-color-bg-4: @overlay0;
+    --ui-quote-color-fg-4: @text;
+    --ui-quote-color-bg-5: @overlay1;
+    --ui-quote-color-fg-5: @base;
+    --ui-quote-color-bg-6: @overlay2;
+    --ui-quote-color-fg-6: @base;
+    --ui-quote-color-bg-7: @subtext0;
+    --ui-quote-color-fg-7: @base;
+    --ui-quote-color-bg-8: @subtext1;
+    --ui-quote-color-fg-8: @base;
+    --ui-quote-color-bg-9: @text;
+    --ui-quote-color-fg-9: @base;
+    --ui-quote-color-bg-10: @text;
+    --ui-quote-color-fg-10: @base;
+
+    /* --- Element-specific overrides --- */
+
+    .v-ComposeAttachment-progress {
+      background: @surface1;
+    }
+
+    .v-ListBanner {
+      font-size: .9em;
+      font-weight: 400;
+      text-align: center;
+
+      p {
+        font-weight: inherit;
+      }
+    }
+
+    .v-Message-banner {
+      color: @subtext0;
+    }
+
+    .v-Button--cta {
+      border-color: var(--ui-button-simple-color-border);
+    }
+
+    .v-Thread-banner,
+    .v-MessageCard {
+      .u-banner {
+        .v-Button--standard {
+          --ui-button-simple-color-bg: @surface1;
+          --ui-button-simple-color-bg-hover: @surface2;
+          --ui-button-simple-color-bg-active: @surface2;
+        }
+      }
+    }
+
+    .v-PageHeader,
+    .v-PageHeader--light,
+    .v-PageHeader--dark {
+      color: @text;
+
+      .v-SearchInput .v-TextInput-input {
+        background-color: @base;
+      }
+
+      .v-Button {
+        --ui-page-color-fg-action: @subtext0;
+
+        &--subtle:hover {
+          background-color: @surface1 !important;
+          color: @accent;
+        }
+
+        &--subtle.is-active {
+          background-color: @surface2 !important;
+          color: @accent;
+        }
+      }
+    }
+
+    .v-HierarchyPane {
+      box-shadow: var(--ui-page-shadow);
+    }
+
+    .v-Split--right {
+      .v-Split {
+        border-top: 1px solid var(--ui-page-color-border-subtle);
+      }
+
+      .v-AgendaDay {
+        padding-block-end: 2em;
+        border-bottom: 1px solid var(--ui-page-color-border-medium);
+      }
+    }
+
+    .v-MainNavToolbar {
+      color: @text;
+    }
+
+    .v-MainMenu-apps .is-selected {
+      --ui-altsurface-color-bg-focused: fade(@accent, 20%);
+    }
+
+    .v-ContextualSidebar {
+      border-top: 1px solid transparent;
+
+      &, .v-Page, .v-Agenda {
+        background-color: var(--ui-sidebar-color-bg);
+      }
+    }
+
+    :not(.v-MenuOption) > .v-Button--cta.v-Button--mergeLeft {
+      border-left-color: var(--ui-button-simple-color-border);
+    }
+
+    .app-source.is-selected {
+      color: @accent;
+    }
+
+    .v-ListBanner--critical {
+      --ui-critical-color-bg: @surface0;
+      --ui-critical-color-fg-strong: @text;
+    }
+
+    .v-MailboxItem {
+      --unread-color: @text;
+      color: var(--unread-color) !important;
+
+      &.is-focused {
+        --ui-memo-color-bg-stop1: @surface1;
+        --ui-memo-color-bg-stop2: @surface2;
+      }
+
+      &.is-unread {
+        --unread-color: @text;
+
+        .v-MailboxItem-count {
+          --ui-invitationicon-color-bg: @surface1;
+          color: @text;
+        }
+      }
+    }
+
+    .v-MailboxItem,
+    .v-Thread {
+      .u-badge {
+        --ui-badge-color-bg: @surface1;
+        --badge-fg: @text;
+        color: var(--badge-fg);
+      }
+
+      .u-banner--critical {
+        --ui-critical-color-bg: @surface0;
+        --ui-critical-color-fg-strong: @text;
+      }
+    }
+
+    div.v-BottomToolbar {
+      color: var(--ui-bottomtoolbar-icon-color-primary);
+
+      .v-Button .label {
+        color: var(--ui-bottomtoolbar-color-fg);
+      }
+    }
+
+    .v-Avatar {
+      border-color: @surface2;
+
+      &-img {
+        background-color: @surface1;
+      }
+
+      &-spam {
+        background-color: @surface1;
+      }
+    }
+
+    .v-PopOver {
+      --ui-page-color-bg-focused: @surface1;
+      background-color: fade(@surface0, 80%);
+      backdrop-filter: blur(10px);
+
+      &-callout {
+        --ui-page-color-bg: @mantle;
+      }
+
+      &-triangle {
+        background-color: fade(@surface1, 75%);
+        border: none;
+      }
+    }
+
+    .v-Quota {
+      padding: .4em;
+
+      &-bar {
+        --ui-badge-color-bg: @surface2;
+      }
+
+      &-used {
+        color: @accent;
+      }
+    }
+
+    div.v-FAB > .v-Button {
+      box-shadow: 0 3px 5px fade(@crust, 30%) !important;
+    }
+
+    .u-list {
+      &-body {
+        --ui-page-color-border-subtle: @surface1;
+      }
+
+      &-item .u-badge.is-active {
+        --ui-success-color-bg: @surface1;
+        --ui-success-color-fg-strong: @text;
+      }
+    }
+
+    .v-Message-body .u-article {
+      --content-background-color: @base;
+    }
+
+    .u-article {
+      &,
+      center,
+      center > div > table,
+      > table {
+        background-color: var(--content-background-color) !important;
+      }
+
+      &:not(.v-RichText-input) {
+        padding-top: 12px;
+      }
+
+      &.u-article--may-be-monospace .u-quote-topPostToggle {
+        margin-top: 2em;
+      }
+    }
+
+    .v-BetaTesting-actions {
+      background-color: var(--ui-page-color-bg);
+    }
+
+    ::selection {
+      background-color: fade(@accent, 30%);
+      color: @base;
+    }
+
+    .u-loading {
+      &::before {
+        background-color: @overlay0;
+      }
+
+      &::after {
+        background-color: @accent;
+      }
+    }
+  }
+}

@@ -233,6 +233,22 @@
     --product-library-selectable-secondary-on-selected-fill: @accent !important;
     --product-library-selectable-secondary-on-selected-tint: @accent !important;
 
+    /* Schedule / due date colors */
+    --product-library-schedule-overdue-fill: @red !important;
+    --product-library-schedule-overdue-tint: @red !important;
+    --product-library-schedule-today-fill: @green !important;
+    --product-library-schedule-today-tint: @green !important;
+    --product-library-schedule-tomorrow-fill: @peach !important;
+    --product-library-schedule-tomorrow-tint: @peach !important;
+    --product-library-schedule-next-week-fill: @mauve !important;
+    --product-library-schedule-next-week-tint: @mauve !important;
+    --product-library-schedule-weekend-fill: @blue !important;
+    --product-library-schedule-weekend-tint: @blue !important;
+    --product-library-schedule-postpone-fill: @blue !important;
+    --product-library-schedule-postpone-tint: @blue !important;
+    --product-library-schedule-no-date-fill: @overlay0 !important;
+    --product-library-schedule-no-date-tint: @overlay0 !important;
+
     /* ── Element overrides ────────────────────────────────── */
     html, body, #todoist_app, #todoist_app > div {
       background-color: @base !important;

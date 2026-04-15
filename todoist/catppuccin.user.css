@@ -1,0 +1,247 @@
+/* ==UserStyle==
+@name         Todoist Catppuccin
+@namespace    github.com/titandrive/userstyles/styles/todoist
+@homepageURL  https://github.com/titandrive/userstyles/tree/main/styles/todoist
+@version      1.0.0
+@updateURL    https://github.com/titandrive/userstyles/raw/main/styles/todoist/catppuccin.user.less
+@description  Soothing pastel theme for Todoist
+@author       titandrive
+@license      MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@import "https://userstyles.catppuccin.com/lib/lib.less";
+
+@-moz-document domain("todoist.com") {
+
+  html.theme_light {
+    #catppuccin(@lightFlavor);
+  }
+
+  html.theme_dark {
+    #catppuccin(@darkFlavor);
+  }
+
+  html:not(.theme_light):not(.theme_dark) {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    --background-primary: @base !important;
+    --background-secondary: @mantle !important;
+    --background-tertiary: @crust !important;
+    --background-elevated: @surface0 !important;
+    --background-hover: @surface0 !important;
+    --background-selected: @surface1 !important;
+    --background-tinted: @surface0 !important;
+
+    --color-base-primary: @base !important;
+    --color-base-secondary: @mantle !important;
+    --color-base-tertiary: @crust !important;
+    --color-surface-0: @surface0 !important;
+    --color-surface-1: @surface1 !important;
+    --color-surface-2: @surface2 !important;
+
+    --left-menu-background: @mantle !important;
+
+    --reactist-bg-default: @base !important;
+    --reactist-bg-aside: @mantle !important;
+    --reactist-bg-menu: @mantle !important;
+    --reactist-bg-toast: @surface0 !important;
+    --reactist-bg-selected: @surface1 !important;
+    --reactist-bg-highlight: fade(@accent, 15%) !important;
+    --reactist-framework-fill-background: @mantle !important;
+    --reactist-field-readonly-background: @mantle !important;
+    --reactist-banner-background-color: @mantle !important;
+    --reactist-alert-tone-caution-background: @mantle !important;
+    --reactist-alert-tone-critical-background: @mantle !important;
+    --reactist-alert-tone-info-background: @mantle !important;
+    --reactist-alert-tone-positive-background: @mantle !important;
+
+    --product-library-background-base-primary: @base !important;
+    --product-library-background-base-secondary: @mantle !important;
+    --product-library-background-base-tertiary: @crust !important;
+    --product-library-background-grouped-primary: @mantle !important;
+    --product-library-background-grouped-secondary: @base !important;
+    --product-library-background-grouped-tertiary: @crust !important;
+    --product-library-background-raised-primary: @surface0 !important;
+    --product-library-background-raised-secondary: @surface1 !important;
+    --product-library-background-raised-tertiary: @surface0 !important;
+    --product-library-background-raised-quaternary: @surface2 !important;
+    --product-library-selectable-background: @surface0 !important;
+
+    --settings-card-idle-fill: @mantle !important;
+    --settings-card-hover-fill: @surface0 !important;
+    --scrollbar-dark-fill: @mantle !important;
+    --scrollbar-thumb-track: @base !important;
+    --doist-card-background: @surface0 !important;
+    --brand-secondary-background: @mantle !important;
+
+    /* ── Text ─────────────────────────────────────────────── */
+    --text-primary: @text !important;
+    --text-secondary: @subtext0 !important;
+    --text-muted: @overlay0 !important;
+    --text-faded: @overlay0 !important;
+    --text-danger: @red !important;
+    --text-warning: @yellow !important;
+    --text-success: @green !important;
+
+    --color-text-primary: @text !important;
+    --color-text-secondary: @subtext0 !important;
+    --color-text-muted: @overlay0 !important;
+
+    --reactist-content-primary: @text !important;
+    --reactist-content-secondary: @subtext0 !important;
+    --reactist-content-tertiary: @overlay0 !important;
+    --reactist-content-danger: @red !important;
+    --reactist-content-positive: @green !important;
+    --reactist-banner-main-copy-color: @text !important;
+    --reactist-banner-secondary-copy-color: @subtext0 !important;
+    --reactist-field-placeholder-tint: @overlay0 !important;
+
+    --product-library-display-primary-idle-tint: @text !important;
+    --product-library-display-secondary-idle-tint: @subtext0 !important;
+    --product-library-display-tertiary-idle-tint: @overlay0 !important;
+
+    /* ── Accent ───────────────────────────────────────────── */
+    --color-accent: @accent !important;
+    --color-accent-hover: lighten(@accent, 5%) !important;
+    --interactive-accent: @accent !important;
+    --interactive-accent-hover: lighten(@accent, 5%) !important;
+    --color-interactive-accent: @accent !important;
+
+    --reactist-actionable-primary-idle-fill: @accent !important;
+    --reactist-actionable-primary-hover-fill: lighten(@accent, 5%) !important;
+    --reactist-actionable-primary-idle-tint: @base !important;
+    --reactist-actionable-primary-hover-tint: @base !important;
+    --reactist-actionable-primary-disabled-fill: @surface1 !important;
+    --reactist-actionable-primary-disabled-tint: @overlay0 !important;
+    --reactist-bg-brand: @accent !important;
+    --reactist-progressbar-fill: @accent !important;
+    --reactist-switch-checked: @accent !important;
+    --reactist-spinner-tint: @accent !important;
+    --reactist-spinner-fill: @surface1 !important;
+
+    --product-library-actionable-primary-idle-fill: @accent !important;
+    --product-library-actionable-primary-hover-fill: lighten(@accent, 5%) !important;
+    --product-library-actionable-primary-on-idle-tint: @base !important;
+    --product-library-actionable-primary-on-hover-tint: @base !important;
+    --product-library-actionable-primary-disabled-fill: @surface1 !important;
+    --product-library-actionable-primary-on-dark-idle-fill: @accent !important;
+    --product-library-actionable-primary-on-dark-hover-fill: lighten(@accent, 5%) !important;
+    --product-library-actionable-primary-on-dark-on-idle-tint: @base !important;
+    --product-library-actionable-primary-on-dark-on-hover-tint: @base !important;
+    --product-library-selectable-primary-selected-fill: @accent !important;
+    --product-library-selectable-primary-selected-tint: lighten(@accent, 5%) !important;
+
+    /* ── Borders ──────────────────────────────────────────── */
+    --color-border: @surface0 !important;
+    --color-border-subtle: @surface1 !important;
+    --border-subtle: @surface0 !important;
+    --border-default: @surface1 !important;
+
+    --reactist-inputs-idle: @surface1 !important;
+    --reactist-inputs-hover: @surface2 !important;
+    --reactist-inputs-focus: @accent !important;
+    --reactist-inputs-alert: @red !important;
+    --reactist-divider-color: @surface0 !important;
+    --reactist-divider-primary: @surface0 !important;
+    --reactist-divider-secondary: @mantle !important;
+    --reactist-divider-tertiary: @surface1 !important;
+    --reactist-banner-border-color: @surface0 !important;
+    --reactist-alert-tone-caution-border: @surface0 !important;
+    --reactist-alert-tone-critical-border: @surface0 !important;
+    --reactist-alert-tone-info-border: @surface0 !important;
+    --reactist-alert-tone-positive-border: @surface0 !important;
+    --reactist-tab-neutral-border: @surface0 !important;
+    --reactist-tab-neutral-track: @mantle !important;
+    --reactist-tab-neutral-selected-fill: @surface0 !important;
+    --reactist-tab-neutral-selected-tint: @text !important;
+    --reactist-tab-neutral-unselected-tint: @subtext0 !important;
+    --reactist-prose-code-border: @surface0 !important;
+    --reactist-prose-code-fill: @mantle !important;
+    --reactist-prose-horizontal-rule-color: @surface0 !important;
+
+    --product-library-border-idle-tint: @surface0 !important;
+    --product-library-border-hover-tint: @surface1 !important;
+    --product-library-border-focus-tint: @accent !important;
+    --product-library-divider-primary: @surface0 !important;
+    --product-library-divider-secondary: @mantle !important;
+    --product-library-divider-tertiary: @surface1 !important;
+    --product-library-divider-on-dark: @surface1 !important;
+    --settings-card-idle-border-color: @surface0 !important;
+    --settings-card-hover-border-color: @surface1 !important;
+
+    /* ── Scrollbars ───────────────────────────────────────── */
+    --scrollbar-thumb-idle: @surface1 !important;
+    --scrollbar-thumb-hover: @surface2 !important;
+    --reactist-scrollbar-thumb-idle: fade(@surface2, 80%) !important;
+
+    /* ── Focus ring ───────────────────────────────────────── */
+    --focus-marker-box-shadow: 0 0 0 1px @accent, 0 0 0 4px fade(@accent, 30%) !important;
+    --focus-marker-box-shadow-inner: @accent !important;
+    --focus-marker-box-shadow-outer: fade(@accent, 30%) !important;
+
+    /* ── Links ────────────────────────────────────────────── */
+    --reactist-text-link-idle-tint: @blue !important;
+    --reactist-text-link-hover-tint: @lavender !important;
+    --reactist-prose-link-hover-tint: @lavender !important;
+
+    /* ── Icon/quaternary buttons ──────────────────────────── */
+    --reactist-actionable-quaternary-idle-tint: @subtext0 !important;
+    --reactist-actionable-quaternary-hover-tint: @text !important;
+    --reactist-actionable-quaternary-hover-fill: fade(@accent, 15%) !important;
+    --product-library-actionable-quaternary-idle-tint: @subtext0 !important;
+    --product-library-actionable-quaternary-hover-tint: @text !important;
+    --product-library-actionable-quaternary-on-dark-idle-tint: @subtext0 !important;
+    --product-library-actionable-quaternary-on-dark-hover-tint: @text !important;
+    --product-library-actionable-quaternary-on-dark-hover-fill: @surface0 !important;
+    --product-library-actionable-focus-fill: @surface0 !important;
+    --reactist-actionable-focus-fill: @surface0 !important;
+
+    /* ── Error/warning/success ────────────────────────────── */
+    --color-error: @red !important;
+    --color-warning: @yellow !important;
+    --color-success: @green !important;
+
+    /* ── Element overrides ────────────────────────────────── */
+    html, body, #todoist_app, #todoist_app > div {
+      background-color: @base !important;
+      color: @text !important;
+    }
+
+    .task_editor__footer {
+      background-color: @mantle !important;
+    }
+
+    .task_editor__editing_area {
+      border-bottom: none !important;
+    }
+
+    .task_editor,
+    .quick_add__body,
+    .quick_add__body > div,
+    .quick_add__body > div > div,
+    form[data-testid="task-editor"],
+    form[data-testid="task-editor"] > div {
+      background-color: @base !important;
+    }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: @mantle; }
+    ::-webkit-scrollbar-thumb { background: @surface1; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: @surface2; }
+  }
+}

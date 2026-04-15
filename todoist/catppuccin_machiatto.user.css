@@ -1,0 +1,222 @@
+/* ==UserStyle==
+@name         Todoist Catppuccin Macchiato
+@namespace    github.com/titandrive/userstyles
+@version      2.0.0
+@description  Soothing pastel theme for Todoist — Catppuccin Macchiato
+@author       titandrive
+@license      MIT
+==/UserStyle== */
+
+@-moz-document domain("todoist.com") {
+
+  html.theme_dark,
+  html.theme_light,
+  html {
+
+    /* ── Backgrounds ─────────────────────────────────────── */
+    --background-primary: #24273a !important;
+    --background-secondary: #1e2030 !important;
+    --background-tertiary: #181926 !important;
+    --background-elevated: #363a4f !important;
+    --background-hover: #363a4f !important;
+    --background-selected: #494d64 !important;
+    --background-tinted: #363a4f !important;
+
+    --color-base-primary: #24273a !important;
+    --color-base-secondary: #1e2030 !important;
+    --color-base-tertiary: #181926 !important;
+    --color-surface-0: #363a4f !important;
+    --color-surface-1: #494d64 !important;
+    --color-surface-2: #5b6078 !important;
+
+    --left-menu-background: #1e2030 !important;
+
+    --reactist-bg-default: #24273a !important;
+    --reactist-bg-aside: #1e2030 !important;
+    --reactist-bg-menu: #1e2030 !important;
+    --reactist-bg-toast: #363a4f !important;
+    --reactist-bg-selected: #494d64 !important;
+    --reactist-bg-highlight: rgba(198,160,246,0.15) !important;
+    --reactist-framework-fill-background: #1e2030 !important;
+    --reactist-field-readonly-background: #1e2030 !important;
+    --reactist-banner-background-color: #1e2030 !important;
+    --reactist-alert-tone-caution-background: #1e2030 !important;
+    --reactist-alert-tone-critical-background: #1e2030 !important;
+    --reactist-alert-tone-info-background: #1e2030 !important;
+    --reactist-alert-tone-positive-background: #1e2030 !important;
+
+    --product-library-background-base-primary: #24273a !important;
+    --product-library-background-base-secondary: #1e2030 !important;
+    --product-library-background-base-tertiary: #181926 !important;
+    --product-library-background-grouped-primary: #1e2030 !important;
+    --product-library-background-grouped-secondary: #24273a !important;
+    --product-library-background-grouped-tertiary: #181926 !important;
+    --product-library-background-raised-primary: #363a4f !important;
+    --product-library-background-raised-secondary: #494d64 !important;
+    --product-library-background-raised-tertiary: #363a4f !important;
+    --product-library-background-raised-quaternary: #5b6078 !important;
+    --product-library-selectable-background: #363a4f !important;
+
+    --settings-card-idle-fill: #1e2030 !important;
+    --settings-card-hover-fill: #363a4f !important;
+    --scrollbar-dark-fill: #1e2030 !important;
+    --scrollbar-thumb-track: #24273a !important;
+    --doist-card-background: #363a4f !important;
+
+    /* ── Text ─────────────────────────────────────────────── */
+    --text-primary: #cad3f5 !important;
+    --text-secondary: #a5adcb !important;
+    --text-muted: #6e738d !important;
+    --text-faded: #6e738d !important;
+    --text-danger: #ed8796 !important;
+    --text-warning: #eed49f !important;
+    --text-success: #a6da95 !important;
+
+    --color-text-primary: #cad3f5 !important;
+    --color-text-secondary: #a5adcb !important;
+    --color-text-muted: #6e738d !important;
+
+    --reactist-content-primary: #cad3f5 !important;
+    --reactist-content-secondary: #a5adcb !important;
+    --reactist-content-tertiary: #6e738d !important;
+    --reactist-content-danger: #ed8796 !important;
+    --reactist-content-positive: #a6da95 !important;
+    --reactist-banner-main-copy-color: #cad3f5 !important;
+    --reactist-banner-secondary-copy-color: #a5adcb !important;
+    --reactist-field-placeholder-tint: #6e738d !important;
+
+    --product-library-display-primary-idle-tint: #cad3f5 !important;
+    --product-library-display-secondary-idle-tint: #a5adcb !important;
+    --product-library-display-tertiary-idle-tint: #6e738d !important;
+
+    /* ── Accent ───────────────────────────────────────────── */
+    --color-accent: #c6a0f6 !important;
+    --color-accent-hover: #b7bdf8 !important;
+    --interactive-accent: #c6a0f6 !important;
+    --interactive-accent-hover: #b7bdf8 !important;
+    --color-interactive-accent: #c6a0f6 !important;
+
+    --reactist-actionable-primary-idle-fill: #c6a0f6 !important;
+    --reactist-actionable-primary-hover-fill: #b7bdf8 !important;
+    --reactist-actionable-primary-idle-tint: #24273a !important;
+    --reactist-actionable-primary-hover-tint: #24273a !important;
+    --reactist-actionable-primary-disabled-fill: #494d64 !important;
+    --reactist-actionable-primary-disabled-tint: #6e738d !important;
+    --reactist-bg-brand: #c6a0f6 !important;
+    --reactist-progressbar-fill: #c6a0f6 !important;
+    --reactist-switch-checked: #c6a0f6 !important;
+    --reactist-spinner-tint: #c6a0f6 !important;
+    --reactist-spinner-fill: #494d64 !important;
+
+    --product-library-actionable-primary-idle-fill: #c6a0f6 !important;
+    --product-library-actionable-primary-hover-fill: #b7bdf8 !important;
+    --product-library-actionable-primary-on-idle-tint: #24273a !important;
+    --product-library-actionable-primary-on-hover-tint: #24273a !important;
+    --product-library-actionable-primary-disabled-fill: #494d64 !important;
+    --product-library-actionable-primary-on-dark-idle-fill: #c6a0f6 !important;
+    --product-library-actionable-primary-on-dark-hover-fill: #b7bdf8 !important;
+    --product-library-actionable-primary-on-dark-on-idle-tint: #24273a !important;
+    --product-library-actionable-primary-on-dark-on-hover-tint: #24273a !important;
+    --product-library-selectable-primary-selected-fill: #c6a0f6 !important;
+    --product-library-selectable-primary-selected-tint: #b7bdf8 !important;
+
+    /* task creator footer */
+    --brand-secondary-background: #1e2030 !important;
+
+    /* ── Borders ──────────────────────────────────────────── */
+    --color-border: #363a4f !important;
+    --color-border-subtle: #494d64 !important;
+    --border-subtle: #363a4f !important;
+    --border-default: #494d64 !important;
+
+    --reactist-inputs-idle: #494d64 !important;
+    --reactist-inputs-hover: #5b6078 !important;
+    --reactist-inputs-focus: #c6a0f6 !important;
+    --reactist-inputs-alert: #ed8796 !important;
+    --reactist-divider-color: #363a4f !important;
+    --reactist-divider-primary: #363a4f !important;
+    --reactist-divider-secondary: #1e2030 !important;
+    --reactist-divider-tertiary: #494d64 !important;
+    --reactist-banner-border-color: #363a4f !important;
+    --reactist-alert-tone-caution-border: #363a4f !important;
+    --reactist-alert-tone-critical-border: #363a4f !important;
+    --reactist-alert-tone-info-border: #363a4f !important;
+    --reactist-alert-tone-positive-border: #363a4f !important;
+    --reactist-tab-neutral-border: #363a4f !important;
+    --reactist-tab-neutral-track: #1e2030 !important;
+    --reactist-tab-neutral-selected-fill: #363a4f !important;
+    --reactist-tab-neutral-selected-tint: #cad3f5 !important;
+    --reactist-tab-neutral-unselected-tint: #a5adcb !important;
+    --reactist-prose-code-border: #363a4f !important;
+    --reactist-prose-code-fill: #1e2030 !important;
+    --reactist-prose-horizontal-rule-color: #363a4f !important;
+
+    --product-library-border-idle-tint: #363a4f !important;
+    --product-library-border-hover-tint: #494d64 !important;
+    --product-library-border-focus-tint: #c6a0f6 !important;
+    --product-library-divider-primary: #363a4f !important;
+    --product-library-divider-secondary: #1e2030 !important;
+    --product-library-divider-tertiary: #494d64 !important;
+    --product-library-divider-on-dark: #494d64 !important;
+    --settings-card-idle-border-color: #363a4f !important;
+    --settings-card-hover-border-color: #494d64 !important;
+    --rbc-grid-divider: 1px solid #363a4f !important;
+
+    /* ── Scrollbars ───────────────────────────────────────── */
+    --scrollbar-thumb-idle: #494d64 !important;
+    --scrollbar-thumb-hover: #5b6078 !important;
+    --reactist-scrollbar-thumb-idle: rgba(73,77,100,0.8) !important;
+
+    /* ── Focus ring ───────────────────────────────────────── */
+    --focus-marker-box-shadow: 0 0 0 1px #c6a0f6, 0 0 0 4px rgba(198,160,246,0.3) !important;
+    --focus-marker-box-shadow-inner: #c6a0f6 !important;
+    --focus-marker-box-shadow-outer: rgba(198,160,246,0.3) !important;
+
+    /* ── Links ────────────────────────────────────────────── */
+    --reactist-text-link-idle-tint: #8aadf4 !important;
+    --reactist-text-link-hover-tint: #b7bdf8 !important;
+    --reactist-prose-link-hover-tint: #b7bdf8 !important;
+
+    /* ── Icon/quaternary buttons ──────────────────────────── */
+    --reactist-actionable-quaternary-idle-tint: #a5adcb !important;
+    --reactist-actionable-quaternary-hover-tint: #cad3f5 !important;
+    --reactist-actionable-quaternary-hover-fill: rgba(198,160,246,0.15) !important;
+    --product-library-actionable-quaternary-idle-tint: #a5adcb !important;
+    --product-library-actionable-quaternary-hover-tint: #cad3f5 !important;
+    --product-library-actionable-quaternary-on-dark-idle-tint: #a5adcb !important;
+    --product-library-actionable-quaternary-on-dark-hover-tint: #cad3f5 !important;
+    --product-library-actionable-quaternary-on-dark-hover-fill: #363a4f !important;
+    --product-library-actionable-focus-fill: #363a4f !important;
+    --reactist-actionable-focus-fill: #363a4f !important;
+  }
+
+  /* ── Element overrides ──────────────────────────────────── */
+  html, body, #todoist_app, #todoist_app > div {
+    background-color: #24273a !important;
+    color: #cad3f5 !important;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #1e2030; }
+  ::-webkit-scrollbar-thumb { background: #494d64; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #5b6078; }
+
+  /* Task creator footer bar */
+  .task_editor__footer {
+    background-color: #1e2030 !important;
+  }
+
+  .task_editor__editing_area {
+    border-bottom: none !important;
+  }
+
+  .task_editor,
+  .quick_add__body,
+  .quick_add__body > div,
+  .quick_add__body > div > div,
+  form[data-testid="task-editor"],
+  form[data-testid="task-editor"] > div {
+    background-color: #24273a !important;
+  }
+
+}

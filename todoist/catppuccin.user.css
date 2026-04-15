@@ -282,5 +282,16 @@
     ::-webkit-scrollbar-track { background: @mantle; }
     ::-webkit-scrollbar-thumb { background: @surface1; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: @surface2; }
+
+    /* Loading screen */
+    #loading,
+    .loading_screen {
+      background-color: @base !important;
+      color: @text !important;
+    }
+
+    .loading_screen svg {
+      fill: @accent !important;
+    }
   }
 }

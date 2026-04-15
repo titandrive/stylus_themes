@@ -216,6 +216,23 @@
     --color-warning: @yellow !important;
     --color-success: @green !important;
 
+    /* Override Todoist's hardcoded brand red with accent */
+    --reactist-actionable-tertiary-idle-tint: @accent !important;
+    --reactist-actionable-tertiary-hover-tint: lighten(@accent, 5%) !important;
+    --reactist-actionable-tertiary-on-dark-idle-tint: @accent !important;
+    --reactist-actionable-tertiary-on-dark-hover-tint: lighten(@accent, 5%) !important;
+    --product-library-actionable-tertiary-idle-tint: @accent !important;
+    --product-library-actionable-tertiary-hover-tint: lighten(@accent, 5%) !important;
+    --product-library-actionable-tertiary-on-dark-idle-tint: @accent !important;
+    --product-library-actionable-tertiary-on-dark-hover-tint: lighten(@accent, 5%) !important;
+    --product-library-display-accent-primary-fill: @accent !important;
+    --product-library-display-accent-primary-tint: @accent !important;
+    --reactist-bg-selected: @surface1 !important;
+    --reactist-badge-attention-tint: @accent !important;
+    --product-library-selectable-secondary-selected-fill: fade(@accent, 20%) !important;
+    --product-library-selectable-secondary-on-selected-fill: @accent !important;
+    --product-library-selectable-secondary-on-selected-tint: @accent !important;
+
     /* ── Element overrides ────────────────────────────────── */
     html, body, #todoist_app, #todoist_app > div {
       background-color: @base !important;
@@ -237,6 +254,12 @@
     form[data-testid="task-editor"],
     form[data-testid="task-editor"] > div {
       background-color: @base !important;
+    }
+
+    /* Sidebar active item and add task button accent color */
+    [class*="add_task_top_row"] span,
+    [data-testid="add-task-top"] span {
+      color: @accent !important;
     }
 
     ::-webkit-scrollbar { width: 6px; height: 6px; }

@@ -1,0 +1,298 @@
+/* ==UserStyle==
+@name         Todoist SilkCircuit
+@namespace    github.com/titandrive/userstyles
+@version      1.0.0
+@description  SilkCircuit cyberpunk theme for Todoist — based on hyperb1iss/silkcircuit
+@author       titandrive
+@license      MIT
+==/UserStyle== */
+
+/* SilkCircuit palette (Neon variant):
+   Background:       #0a0a0f
+   Surface:          #12121a
+   Surface elevated: #1a1a24
+   Surface2:         #22222e
+   Foreground:       #e0e0e0
+   Muted:            #888899
+   Electric Purple:  #e135ff
+   Hot Pink:         #ff79c6
+   Neon Cyan:        #80ffea
+   Success Green:    #50fa7b
+   Electric Yellow:  #f1fa8c
+   Warm Orange:      #ffb86c
+   Red/Error:        #ff5555
+   Border:           #2a2a38
+*/
+
+@-moz-document domain("todoist.com") {
+
+  html.theme_dark,
+  html.theme_light,
+  html {
+
+    /* ── Backgrounds ─────────────────────────────────────── */
+    --background-primary: #0a0a0f !important;
+    --background-secondary: #12121a !important;
+    --background-tertiary: #080808 !important;
+    --background-elevated: #1a1a24 !important;
+    --background-hover: #1a1a24 !important;
+    --background-selected: #22222e !important;
+    --background-tinted: #1a1a24 !important;
+
+    --color-base-primary: #0a0a0f !important;
+    --color-base-secondary: #12121a !important;
+    --color-base-tertiary: #080808 !important;
+    --color-surface-0: #1a1a24 !important;
+    --color-surface-1: #22222e !important;
+    --color-surface-2: #2a2a38 !important;
+
+    --left-menu-background: #12121a !important;
+
+    --reactist-bg-default: #0a0a0f !important;
+    --reactist-bg-aside: #12121a !important;
+    --reactist-bg-menu: #12121a !important;
+    --reactist-bg-toast: #1a1a24 !important;
+    --reactist-bg-selected: #22222e !important;
+    --reactist-bg-highlight: rgba(225,53,255,0.15) !important;
+    --reactist-framework-fill-background: #12121a !important;
+    --reactist-field-readonly-background: #12121a !important;
+    --reactist-banner-background-color: #12121a !important;
+    --reactist-alert-tone-caution-background: #12121a !important;
+    --reactist-alert-tone-critical-background: #12121a !important;
+    --reactist-alert-tone-info-background: #12121a !important;
+    --reactist-alert-tone-positive-background: #12121a !important;
+
+    --product-library-background-base-primary: #0a0a0f !important;
+    --product-library-background-base-secondary: #12121a !important;
+    --product-library-background-base-tertiary: #080808 !important;
+    --product-library-background-grouped-primary: #12121a !important;
+    --product-library-background-grouped-secondary: #0a0a0f !important;
+    --product-library-background-grouped-tertiary: #080808 !important;
+    --product-library-background-raised-primary: #1a1a24 !important;
+    --product-library-background-raised-secondary: #22222e !important;
+    --product-library-background-raised-tertiary: #1a1a24 !important;
+    --product-library-background-raised-quaternary: #2a2a38 !important;
+    --product-library-selectable-background: #1a1a24 !important;
+
+    --settings-card-idle-fill: #12121a !important;
+    --settings-card-hover-fill: #1a1a24 !important;
+    --scrollbar-dark-fill: #12121a !important;
+    --scrollbar-thumb-track: #0a0a0f !important;
+    --doist-card-background: #1a1a24 !important;
+    --brand-secondary-background: #12121a !important;
+
+    /* ── Text ─────────────────────────────────────────────── */
+    --text-primary: #e0e0e0 !important;
+    --text-secondary: #aaaabc !important;
+    --text-muted: #666677 !important;
+    --text-faded: #666677 !important;
+    --text-danger: #ff5555 !important;
+    --text-warning: #f1fa8c !important;
+    --text-success: #50fa7b !important;
+
+    --color-text-primary: #e0e0e0 !important;
+    --color-text-secondary: #aaaabc !important;
+    --color-text-muted: #666677 !important;
+
+    --reactist-content-primary: #e0e0e0 !important;
+    --reactist-content-secondary: #aaaabc !important;
+    --reactist-content-tertiary: #666677 !important;
+    --reactist-content-danger: #ff5555 !important;
+    --reactist-content-positive: #50fa7b !important;
+    --reactist-banner-main-copy-color: #e0e0e0 !important;
+    --reactist-banner-secondary-copy-color: #aaaabc !important;
+    --reactist-field-placeholder-tint: #666677 !important;
+
+    --product-library-display-primary-idle-tint: #e0e0e0 !important;
+    --product-library-display-secondary-idle-tint: #aaaabc !important;
+    --product-library-display-tertiary-idle-tint: #666677 !important;
+
+    /* ── Accent (Electric Purple) ─────────────────────────── */
+    --color-accent: #e135ff !important;
+    --color-accent-hover: #ff79c6 !important;
+    --interactive-accent: #e135ff !important;
+    --interactive-accent-hover: #ff79c6 !important;
+    --color-interactive-accent: #e135ff !important;
+
+    --reactist-actionable-primary-idle-fill: #e135ff !important;
+    --reactist-actionable-primary-hover-fill: #ff79c6 !important;
+    --reactist-actionable-primary-idle-tint: #0a0a0f !important;
+    --reactist-actionable-primary-hover-tint: #0a0a0f !important;
+    --reactist-actionable-primary-disabled-fill: #22222e !important;
+    --reactist-actionable-primary-disabled-tint: #666677 !important;
+    --reactist-bg-brand: #e135ff !important;
+    --reactist-progressbar-fill: #e135ff !important;
+    --reactist-switch-checked: #e135ff !important;
+    --reactist-spinner-tint: #e135ff !important;
+    --reactist-spinner-fill: #22222e !important;
+
+    --product-library-actionable-primary-idle-fill: #e135ff !important;
+    --product-library-actionable-primary-hover-fill: #ff79c6 !important;
+    --product-library-actionable-primary-on-idle-tint: #0a0a0f !important;
+    --product-library-actionable-primary-on-hover-tint: #0a0a0f !important;
+    --product-library-actionable-primary-disabled-fill: #22222e !important;
+    --product-library-actionable-primary-on-dark-idle-fill: #e135ff !important;
+    --product-library-actionable-primary-on-dark-hover-fill: #ff79c6 !important;
+    --product-library-actionable-primary-on-dark-on-idle-tint: #0a0a0f !important;
+    --product-library-actionable-primary-on-dark-on-hover-tint: #0a0a0f !important;
+    --product-library-selectable-primary-selected-fill: #e135ff !important;
+    --product-library-selectable-primary-selected-tint: #ff79c6 !important;
+
+    /* ── Borders ──────────────────────────────────────────── */
+    --color-border: #1a1a24 !important;
+    --color-border-subtle: #2a2a38 !important;
+    --border-subtle: #1a1a24 !important;
+    --border-default: #2a2a38 !important;
+
+    --reactist-inputs-idle: #2a2a38 !important;
+    --reactist-inputs-hover: #3a3a4a !important;
+    --reactist-inputs-focus: #e135ff !important;
+    --reactist-inputs-alert: #ff5555 !important;
+    --reactist-divider-color: #1a1a24 !important;
+    --reactist-divider-primary: #1a1a24 !important;
+    --reactist-divider-secondary: #12121a !important;
+    --reactist-divider-tertiary: #2a2a38 !important;
+    --reactist-banner-border-color: #2a2a38 !important;
+    --reactist-alert-tone-caution-border: #2a2a38 !important;
+    --reactist-alert-tone-critical-border: #2a2a38 !important;
+    --reactist-alert-tone-info-border: #2a2a38 !important;
+    --reactist-alert-tone-positive-border: #2a2a38 !important;
+    --reactist-tab-neutral-border: #2a2a38 !important;
+    --reactist-tab-neutral-track: #12121a !important;
+    --reactist-tab-neutral-selected-fill: #1a1a24 !important;
+    --reactist-tab-neutral-selected-tint: #e0e0e0 !important;
+    --reactist-tab-neutral-unselected-tint: #aaaabc !important;
+    --reactist-prose-code-border: #2a2a38 !important;
+    --reactist-prose-code-fill: #12121a !important;
+    --reactist-prose-horizontal-rule-color: #2a2a38 !important;
+
+    --product-library-border-idle-tint: #1a1a24 !important;
+    --product-library-border-hover-tint: #2a2a38 !important;
+    --product-library-border-focus-tint: #e135ff !important;
+    --product-library-divider-primary: #1a1a24 !important;
+    --product-library-divider-secondary: #12121a !important;
+    --product-library-divider-tertiary: #2a2a38 !important;
+    --product-library-divider-on-dark: #2a2a38 !important;
+    --settings-card-idle-border-color: #1a1a24 !important;
+    --settings-card-hover-border-color: #2a2a38 !important;
+    --rbc-grid-divider: 1px solid #1a1a24 !important;
+
+    /* ── Scrollbars ───────────────────────────────────────── */
+    --scrollbar-thumb-idle: #22222e !important;
+    --scrollbar-thumb-hover: #2a2a38 !important;
+    --reactist-scrollbar-thumb-idle: rgba(42,42,56,0.8) !important;
+
+    /* ── Focus ring ───────────────────────────────────────── */
+    --focus-marker-box-shadow: 0 0 0 1px #e135ff, 0 0 0 4px rgba(225,53,255,0.3) !important;
+    --focus-marker-box-shadow-inner: #e135ff !important;
+    --focus-marker-box-shadow-outer: rgba(225,53,255,0.3) !important;
+
+    /* ── Links (Neon Cyan) ────────────────────────────────── */
+    --reactist-text-link-idle-tint: #80ffea !important;
+    --reactist-text-link-hover-tint: #ff79c6 !important;
+    --reactist-prose-link-hover-tint: #ff79c6 !important;
+
+    /* ── Icon/quaternary buttons ──────────────────────────── */
+    --reactist-actionable-quaternary-idle-tint: #aaaabc !important;
+    --reactist-actionable-quaternary-hover-tint: #e0e0e0 !important;
+    --reactist-actionable-quaternary-hover-fill: rgba(225,53,255,0.15) !important;
+    --product-library-actionable-quaternary-idle-tint: #aaaabc !important;
+    --product-library-actionable-quaternary-hover-tint: #e0e0e0 !important;
+    --product-library-actionable-quaternary-on-dark-idle-tint: #aaaabc !important;
+    --product-library-actionable-quaternary-on-dark-hover-tint: #e0e0e0 !important;
+    --product-library-actionable-quaternary-on-dark-hover-fill: #1a1a24 !important;
+    --product-library-actionable-focus-fill: #1a1a24 !important;
+    --reactist-actionable-focus-fill: #1a1a24 !important;
+
+    /* ── Error/warning/success ────────────────────────────── */
+    --color-error: #ff5555 !important;
+    --color-warning: #f1fa8c !important;
+    --color-success: #50fa7b !important;
+
+    /* ── Sidebar selected item ────────────────────────────── */
+    --product-library-selectable-secondary-selected-fill: rgba(225,53,255,0.2) !important;
+    --product-library-selectable-secondary-on-selected-fill: #e135ff !important;
+    --product-library-selectable-secondary-on-selected-tint: #e135ff !important;
+
+    /* ── Tertiary/brand actions ───────────────────────────── */
+    --reactist-actionable-tertiary-idle-tint: #e135ff !important;
+    --reactist-actionable-tertiary-hover-tint: #ff79c6 !important;
+    --reactist-actionable-tertiary-on-dark-idle-tint: #e135ff !important;
+    --reactist-actionable-tertiary-on-dark-hover-tint: #ff79c6 !important;
+    --product-library-actionable-tertiary-idle-tint: #e135ff !important;
+    --product-library-actionable-tertiary-hover-tint: #ff79c6 !important;
+    --product-library-actionable-tertiary-on-dark-idle-tint: #e135ff !important;
+    --product-library-actionable-tertiary-on-dark-hover-tint: #ff79c6 !important;
+    --product-library-display-accent-primary-fill: #e135ff !important;
+    --product-library-display-accent-primary-tint: #e135ff !important;
+
+    /* ── Schedule / due date colors ───────────────────────── */
+    --product-library-schedule-overdue-fill: #ff2020 !important;
+    --product-library-schedule-overdue-tint: #ff2020 !important;
+    --product-library-schedule-today-fill: #23d45e !important;
+    --product-library-schedule-today-tint: #23d45e !important;
+    --product-library-schedule-tomorrow-fill: #ff4ecd !important;
+    --product-library-schedule-tomorrow-tint: #ff4ecd !important;
+    --product-library-schedule-next-week-fill: #e135ff !important;
+    --product-library-schedule-next-week-tint: #e135ff !important;
+    --product-library-schedule-weekend-fill: #80ffea !important;
+    --product-library-schedule-weekend-tint: #80ffea !important;
+    --product-library-schedule-postpone-fill: #80ffea !important;
+    --product-library-schedule-postpone-tint: #80ffea !important;
+    --product-library-schedule-no-date-fill: #666677 !important;
+    --product-library-schedule-no-date-tint: #666677 !important;
+  }
+
+  /* ── Element overrides ──────────────────────────────────── */
+  html, body, #todoist_app, #todoist_app > div {
+    background-color: #0a0a0f !important;
+    color: #e0e0e0 !important;
+  }
+
+  /* Task creator */
+  .task_editor__footer {
+    background-color: #12121a !important;
+  }
+
+  .task_editor__editing_area {
+    border-bottom: none !important;
+  }
+
+  .task_editor,
+  .quick_add__body,
+  .quick_add__body > div,
+  .quick_add__body > div > div,
+  form[data-testid="task-editor"],
+  form[data-testid="task-editor"] > div {
+    background-color: #0a0a0f !important;
+  }
+
+  /* Sidebar active item */
+  [class*="nav_item--active"],
+  [class*="navigation_item--active"],
+  [aria-current="page"],
+  [class*="is_active"] {
+    background-color: rgba(225,53,255,0.2) !important;
+    color: #e135ff !important;
+  }
+
+  /* Task title links */
+  [class*="task_content"] a,
+  [data-testid="task-content"] a,
+  .task_list_item a {
+    color: #80ffea !important;
+    text-decoration-color: #80ffea !important;
+  }
+
+  /* Add task button */
+  [class*="add_task"] {
+    color: #e135ff !important;
+  }
+
+  /* Scrollbars */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #12121a; }
+  ::-webkit-scrollbar-thumb { background: #2a2a38; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3a3a4a; }
+
+}

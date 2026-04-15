@@ -293,5 +293,13 @@
     .loading_screen svg {
       fill: @accent !important;
     }
+
+    .loading_screen--logo .logo_bg {
+      fill: @accent !important;
+    }
+
+    .loading_screen--logo .logo_stripe {
+      fill: @base !important;
+    }
   }
 }

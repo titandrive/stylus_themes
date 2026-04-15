@@ -1,0 +1,347 @@
+/* ==UserStyle==
+@name         Todoist Modus Themes
+@namespace    github.com/titandrive/userstyles/styles/todoist-modus
+@version      2.0.0
+@description  All 6 Modus theme flavors for Todoist — WCAG AAA
+@author       titandrive
+@license      MIT
+
+@preprocessor less
+@var select flavor "Flavor" [
+  "v:Modus Vivendi*",
+  "vt:Modus Vivendi Tinted",
+  "vd:Modus Vivendi Deuteranopia",
+  "o:Modus Operandi",
+  "ot:Modus Operandi Tinted",
+  "od:Modus Operandi Deuteranopia"
+]
+==/UserStyle== */
+
+/*
+  Modus Vivendi              bg #000000  bg-dim #1e1e1e  bg-active #535353  bg-inactive #303030
+  Modus Vivendi Tinted       bg #0d0e1c  bg-dim #1d2235  bg-active #4a4f69  bg-inactive #2b3045
+  Modus Vivendi Deuteranopia bg #000000  bg-dim #1e1e1e  bg-active #535353  bg-inactive #303030
+  Modus Operandi             bg #ffffff  bg-dim #f2f2f2  bg-active #c4c4c4  bg-inactive #e0e0e0
+  Modus Operandi Tinted      bg #fbf7f0  bg-dim #efe9dd  bg-active #c9b9b0  bg-inactive #dfd5cf
+  Modus Operandi Deuteranopia bg #ffffff  bg-dim #f2f2f2  bg-active #c4c4c4  bg-inactive #e0e0e0
+
+  Deuteranopia variants use yellow/blue instead of green/red for status coding.
+  Primary accent across all variants: blue-warmer (dark: #79a8ff, light: #3548cf)
+*/
+
+@-moz-document domain("todoist.com") {
+
+  /* ── Background values per flavor ──────────────────────── */
+  @bg:     if(@flavor = v,              #000000,
+           if(@flavor = vt,       #0d0e1c,
+           if(@flavor = vd, #000000,
+           if(@flavor = o,             #ffffff,
+           if(@flavor = ot,      #fbf7f0,
+                                              #ffffff)))));
+
+  @bg-dim: if(@flavor = v,              #1e1e1e,
+           if(@flavor = vt,       #1d2235,
+           if(@flavor = vd, #1e1e1e,
+           if(@flavor = o,             #f2f2f2,
+           if(@flavor = ot,      #efe9dd,
+                                              #f2f2f2)))));
+
+  @bg-alt: if(@flavor = v,              #2c2c2c,
+           if(@flavor = vt,       #2e3254,
+           if(@flavor = vd, #2c2c2c,
+           if(@flavor = o,             #e8e8e8,
+           if(@flavor = ot,      #e0d8cc,
+                                              #e8e8e8)))));
+
+  @bg-act: if(@flavor = v,              #535353,
+           if(@flavor = vt,       #4a4f69,
+           if(@flavor = vd, #535353,
+           if(@flavor = o,             #c4c4c4,
+           if(@flavor = ot,      #c9b9b0,
+                                              #c4c4c4)))));
+
+  @bg-in:  if(@flavor = v,              #303030,
+           if(@flavor = vt,       #2b3045,
+           if(@flavor = vd, #303030,
+           if(@flavor = o,             #e0e0e0,
+           if(@flavor = ot,      #dfd5cf,
+                                              #e0e0e0)))));
+
+  /* ── Dark or light? ─────────────────────────────────────── */
+  @dark: if(@flavor = v, 1,
+          if(@flavor = vt, 1,
+          if(@flavor = vd, 1, 0)));
+  @deut: if(@flavor = vd, 1,
+          if(@flavor = od, 1, 0));
+
+  /* ── Foreground ─────────────────────────────────────────── */
+  @fg:     if(@dark = 1, #ffffff, #000000);
+  @fg-dim: if(@dark = 1, #989898, #595959);
+  @fg-alt: if(@dark = 1, #c6daff, #193668);
+
+  /* ── Accent foregrounds ─────────────────────────────────── */
+  @red:     if(@dark = 1, #ff5f59, #a60000);
+  @green:   if(@dark = 1, #44bc44, #006800);
+  @yellow:  if(@dark = 1, #d0bc00, #6f5500);
+  @blue:    if(@dark = 1, #2fafff, #0031a9);
+  @blue-w:  if(@dark = 1, #79a8ff, #3548cf);
+  @magenta: if(@dark = 1, #feacd0, #721045);
+  @mag-c:   if(@dark = 1, #b6a0ff, #531ab6);
+  @cyan:    if(@dark = 1, #00d3d0, #005e8b);
+  @cyan-c:  if(@dark = 1, #6ae4b9, #005f5f);
+
+  /* Deuteranopia replaces red/green with yellow/blue for status */
+  @deut-warn: if(@dark = 1, #fec43f, #884900);
+  @deut-info: if(@dark = 1, #00bcff, #0000b0);
+
+  /* Primary accent = blue-warmer */
+  @ac:       @blue-w;
+  @ac-hover: @mag-c;
+
+  /* Schedule status: deuteranopia-safe */
+  @sc-overdue: if(@deut = 1, @deut-warn, @red);
+  @sc-today:   if(@deut = 1, @deut-info, @green);
+
+  html.theme_dark,
+  html.theme_light,
+  html {
+
+
+    /* Backgrounds */
+    --background-primary: @bg !important;
+    --background-secondary: @bg-dim !important;
+    --background-tertiary: @bg !important;
+    --background-elevated: @bg-alt !important;
+    --background-hover: @bg-alt !important;
+    --background-selected: @bg-act !important;
+    --background-tinted: @bg-alt !important;
+
+    --color-base-primary: @bg !important;
+    --color-base-secondary: @bg-dim !important;
+    --color-base-tertiary: @bg !important;
+    --color-surface-0: @bg-alt !important;
+    --color-surface-1: @bg-act !important;
+    --color-surface-2: @bg-in !important;
+
+    --left-menu-background: @bg-dim !important;
+
+    --reactist-bg-default: @bg !important;
+    --reactist-bg-aside: @bg-dim !important;
+    --reactist-bg-menu: @bg-dim !important;
+    --reactist-bg-toast: @bg-alt !important;
+    --reactist-bg-selected: @bg-act !important;
+    --reactist-bg-highlight: fade(@ac, 15%) !important;
+    --reactist-framework-fill-background: @bg-dim !important;
+    --reactist-field-readonly-background: @bg-dim !important;
+    --reactist-banner-background-color: @bg-dim !important;
+    --reactist-alert-tone-caution-background: @bg-dim !important;
+    --reactist-alert-tone-critical-background: @bg-dim !important;
+    --reactist-alert-tone-info-background: @bg-dim !important;
+    --reactist-alert-tone-positive-background: @bg-dim !important;
+
+    --product-library-background-base-primary: @bg !important;
+    --product-library-background-base-secondary: @bg-dim !important;
+    --product-library-background-base-tertiary: @bg !important;
+    --product-library-background-grouped-primary: @bg-dim !important;
+    --product-library-background-grouped-secondary: @bg !important;
+    --product-library-background-grouped-tertiary: @bg !important;
+    --product-library-background-raised-primary: @bg-alt !important;
+    --product-library-background-raised-secondary: @bg-act !important;
+    --product-library-background-raised-tertiary: @bg-alt !important;
+    --product-library-background-raised-quaternary: @bg-in !important;
+    --product-library-selectable-background: @bg-alt !important;
+
+    --settings-card-idle-fill: @bg-dim !important;
+    --settings-card-hover-fill: @bg-alt !important;
+    --doist-card-background: @bg-alt !important;
+    --brand-secondary-background: @bg-dim !important;
+
+    /* Text */
+    --text-primary: @fg !important;
+    --text-secondary: @fg-dim !important;
+    --text-muted: @fg-dim !important;
+    --text-faded: @fg-dim !important;
+    --text-danger: @red !important;
+    --text-warning: @yellow !important;
+    --text-success: @green !important;
+
+    --color-text-primary: @fg !important;
+    --color-text-secondary: @fg-dim !important;
+    --color-text-muted: @fg-dim !important;
+
+    --reactist-content-primary: @fg !important;
+    --reactist-content-secondary: @fg-dim !important;
+    --reactist-content-tertiary: @fg-dim !important;
+    --reactist-content-danger: @red !important;
+    --reactist-content-positive: @green !important;
+    --reactist-banner-main-copy-color: @fg !important;
+    --reactist-banner-secondary-copy-color: @fg-dim !important;
+    --reactist-field-placeholder-tint: @fg-dim !important;
+
+    --product-library-display-primary-idle-tint: @fg !important;
+    --product-library-display-secondary-idle-tint: @fg-dim !important;
+    --product-library-display-tertiary-idle-tint: @fg-dim !important;
+
+    /* Accent */
+    --color-accent: @ac !important;
+    --color-accent-hover: @ac-hover !important;
+    --interactive-accent: @ac !important;
+    --interactive-accent-hover: @ac-hover !important;
+    --color-interactive-accent: @ac !important;
+
+    --reactist-actionable-primary-idle-fill: @ac !important;
+    --reactist-actionable-primary-hover-fill: @ac-hover !important;
+    --reactist-actionable-primary-idle-tint: @bg !important;
+    --reactist-actionable-primary-hover-tint: @bg !important;
+    --reactist-actionable-primary-disabled-fill: @bg-act !important;
+    --reactist-actionable-primary-disabled-tint: @fg-dim !important;
+    --reactist-bg-brand: @ac !important;
+    --reactist-progressbar-fill: @ac !important;
+    --reactist-switch-checked: @ac !important;
+    --reactist-spinner-tint: @ac !important;
+    --reactist-spinner-fill: @bg-act !important;
+
+    --product-library-actionable-primary-idle-fill: @ac !important;
+    --product-library-actionable-primary-hover-fill: @ac-hover !important;
+    --product-library-actionable-primary-on-idle-tint: @bg !important;
+    --product-library-actionable-primary-on-hover-tint: @bg !important;
+    --product-library-actionable-primary-disabled-fill: @bg-act !important;
+    --product-library-actionable-primary-on-dark-idle-fill: @ac !important;
+    --product-library-actionable-primary-on-dark-hover-fill: @ac-hover !important;
+    --product-library-actionable-primary-on-dark-on-idle-tint: @bg !important;
+    --product-library-actionable-primary-on-dark-on-hover-tint: @bg !important;
+    --product-library-selectable-primary-selected-fill: @ac !important;
+    --product-library-selectable-primary-selected-tint: @ac-hover !important;
+
+    /* Borders */
+    --color-border: @bg-alt !important;
+    --color-border-subtle: @bg-act !important;
+    --border-subtle: @bg-alt !important;
+    --border-default: @bg-act !important;
+
+    --reactist-inputs-idle: @bg-act !important;
+    --reactist-inputs-hover: @bg-in !important;
+    --reactist-inputs-focus: @ac !important;
+    --reactist-inputs-alert: @red !important;
+    --reactist-divider-color: @bg-alt !important;
+    --reactist-divider-primary: @bg-alt !important;
+    --reactist-divider-secondary: @bg-dim !important;
+    --reactist-divider-tertiary: @bg-act !important;
+    --reactist-banner-border-color: @bg-alt !important;
+    --reactist-tab-neutral-border: @bg-alt !important;
+    --reactist-tab-neutral-track: @bg-dim !important;
+    --reactist-tab-neutral-selected-fill: @bg-alt !important;
+    --reactist-tab-neutral-selected-tint: @fg !important;
+    --reactist-tab-neutral-unselected-tint: @fg-dim !important;
+    --reactist-prose-code-border: @bg-alt !important;
+    --reactist-prose-code-fill: @bg-dim !important;
+
+    --product-library-border-idle-tint: @bg-alt !important;
+    --product-library-border-hover-tint: @bg-act !important;
+    --product-library-border-focus-tint: @ac !important;
+    --product-library-divider-primary: @bg-alt !important;
+    --product-library-divider-secondary: @bg-dim !important;
+    --product-library-divider-tertiary: @bg-act !important;
+    --product-library-divider-on-dark: @bg-act !important;
+    --settings-card-idle-border-color: @bg-alt !important;
+    --settings-card-hover-border-color: @bg-act !important;
+
+    /* Scrollbars */
+    --scrollbar-thumb-idle: @bg-act !important;
+    --scrollbar-thumb-hover: @bg-in !important;
+
+    /* Focus ring */
+    --focus-marker-box-shadow: 0 0 0 1px @ac, 0 0 0 4px fade(@ac, 30%) !important;
+    --focus-marker-box-shadow-inner: @ac !important;
+    --focus-marker-box-shadow-outer: fade(@ac, 30%) !important;
+
+    /* Links */
+    --reactist-text-link-idle-tint: @blue !important;
+    --reactist-text-link-hover-tint: @cyan !important;
+
+    /* Quaternary buttons */
+    --reactist-actionable-quaternary-idle-tint: @fg-dim !important;
+    --reactist-actionable-quaternary-hover-tint: @fg !important;
+    --reactist-actionable-quaternary-hover-fill: fade(@ac, 15%) !important;
+    --product-library-actionable-quaternary-idle-tint: @fg-dim !important;
+    --product-library-actionable-quaternary-hover-tint: @fg !important;
+    --product-library-actionable-quaternary-on-dark-idle-tint: @fg-dim !important;
+    --product-library-actionable-quaternary-on-dark-hover-tint: @fg !important;
+    --product-library-actionable-quaternary-on-dark-hover-fill: @bg-alt !important;
+    --product-library-actionable-focus-fill: @bg-alt !important;
+    --reactist-actionable-focus-fill: @bg-alt !important;
+
+    /* Tertiary/brand actions */
+    --reactist-actionable-tertiary-idle-tint: @ac !important;
+    --reactist-actionable-tertiary-hover-tint: @ac-hover !important;
+    --product-library-actionable-tertiary-idle-tint: @ac !important;
+    --product-library-actionable-tertiary-hover-tint: @ac-hover !important;
+    --product-library-actionable-tertiary-on-dark-idle-tint: @ac !important;
+    --product-library-actionable-tertiary-on-dark-hover-tint: @ac-hover !important;
+    --product-library-display-accent-primary-fill: @ac !important;
+    --product-library-display-accent-primary-tint: @ac !important;
+
+    /* Sidebar selected */
+    --product-library-selectable-secondary-selected-fill: fade(@ac, 15%) !important;
+    --product-library-selectable-secondary-on-selected-fill: @ac !important;
+    --product-library-selectable-secondary-on-selected-tint: @ac !important;
+
+    /* Schedule colors — deuteranopia-aware */
+    --product-library-schedule-overdue-fill:   @sc-overdue !important;
+    --product-library-schedule-overdue-tint:   @sc-overdue !important;
+    --product-library-schedule-today-fill:     @sc-today   !important;
+    --product-library-schedule-today-tint:     @sc-today   !important;
+    --product-library-schedule-tomorrow-fill:  @cyan       !important;
+    --product-library-schedule-tomorrow-tint:  @cyan       !important;
+    --product-library-schedule-next-week-fill: @mag-c      !important;
+    --product-library-schedule-next-week-tint: @mag-c      !important;
+    --product-library-schedule-weekend-fill:   @blue-w     !important;
+    --product-library-schedule-weekend-tint:   @blue-w     !important;
+    --product-library-schedule-postpone-fill:  @cyan       !important;
+    --product-library-schedule-postpone-tint:  @cyan       !important;
+    --product-library-schedule-no-date-fill:   @fg-dim     !important;
+    --product-library-schedule-no-date-tint:   @fg-dim     !important;
+
+    /* Error/warning/success */
+    --color-error:   @red    !important;
+    --color-warning: @yellow !important;
+    --color-success: @green  !important;
+
+    /* Element overrides */
+    html, body, #todoist_app, #todoist_app > div {
+      background-color: @bg !important;
+      color: @fg !important;
+    }
+
+    .task_editor__footer { background-color: @bg-dim !important; }
+    .task_editor__editing_area { border-bottom: none !important; }
+
+    .task_editor,
+    .quick_add__body,
+    .quick_add__body > div,
+    .quick_add__body > div > div,
+    form[data-testid="task-editor"],
+    form[data-testid="task-editor"] > div { background-color: @bg !important; }
+
+    button#tasks[aria-selected="true"],
+    button#comments[aria-selected="true"] {
+      background-color: @bg-alt !important;
+      color: @fg !important;
+    }
+
+    button#tasks[aria-selected="false"],
+    button#comments[aria-selected="false"] {
+      background-color: transparent !important;
+      color: @fg-dim !important;
+    }
+
+    #loading, .loading_screen { background-color: @bg !important; }
+    .loading_screen--logo .logo_bg { fill: @ac !important; }
+    .loading_screen--logo .logo_stripe { fill: @bg !important; }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: @bg-dim; }
+    ::-webkit-scrollbar-thumb { background: @bg-act; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: @bg-in; }
+  }
+}

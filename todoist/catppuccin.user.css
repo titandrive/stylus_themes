@@ -58,7 +58,7 @@
 
     --reactist-bg-default: @base !important;
     --reactist-bg-aside: @mantle !important;
-    --reactist-bg-menu: @mantle !important;
+    --reactist-bg-menu: @surface0 !important;
     --reactist-bg-toast: @surface0 !important;
     --reactist-bg-selected: @surface1 !important;
     --reactist-bg-highlight: fade(@accent, 15%) !important;
@@ -282,6 +282,27 @@
     ::-webkit-scrollbar-track { background: @mantle; }
     ::-webkit-scrollbar-thumb { background: @surface1; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: @surface2; }
+
+    /* Tasks/Comments tab buttons */
+    button#tasks[aria-selected="true"],
+    button#comments[aria-selected="true"] {
+      background-color: @surface0 !important;
+      color: @text !important;
+    }
+
+    button#tasks[aria-selected="false"],
+    button#comments[aria-selected="false"] {
+      background-color: transparent !important;
+      color: @subtext0 !important;
+    }
+
+    /* Menu item hover — overrides hardcoded reactist styles */
+    [role="menu"] [role="menuitem"]:hover,
+    [role="menu"] [role="menuitem"]:focus,
+    [role="menubar"] [role="menuitem"]:hover,
+    [role="menubar"] [role="menuitem"]:focus {
+      background-color: @surface1 !important;
+    }
 
     /* Loading screen */
     #loading,

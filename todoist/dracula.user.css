@@ -260,6 +260,17 @@
       color: @fg !important;
     }
 
+    /* Sidebar list item hover */
+    div[id^="sidebar-list-item"]:hover,
+    div[sidebar-list-item="true"]:hover,
+    div[data-drag-over="false"]:hover,
+    [data-testid="project-list-item"] > div:hover,
+    li[type="project_list_item"]:hover > div,
+    li[type="project_list_item"]:hover div[id^="sidebar-list-item"],
+    .JczMOAc:hover {
+      background-color: @surface !important;
+    }
+
     .task_editor__footer { background-color: @current !important; }
     .task_editor__editing_area { border-bottom: none !important; }
 

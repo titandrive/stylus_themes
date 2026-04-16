@@ -296,6 +296,22 @@
       color: @subtext0 !important;
     }
 
+    /* Sidebar list item + section header hover */
+    div[id^="sidebar-list-item"]:hover,
+    div[sidebar-list-item="true"]:hover,
+    div[data-drag-over="false"]:hover,
+    [data-testid="project-list-item"] > div:hover,
+    [data-testid="project-list-item"]:hover > div,
+    li[type="project_list_item"]:hover > div,
+    li[type="project_list_item"]:hover div[id^="sidebar-list-item"],
+    [data-testid="sidebar-section-header"]:hover,
+    [data-testid*="section"]:hover > div,
+    li[type="section_list_item"]:hover > div,
+    li[type="section_list_item"]:hover div[id^="sidebar-list-item"],
+    .JczMOAc:hover {
+      background-color: @surface0 !important;
+    }
+
     /* Menu item hover — overrides hardcoded reactist styles */
     [role="menu"] [role="menuitem"]:hover,
     [role="menu"] [role="menuitem"]:focus,

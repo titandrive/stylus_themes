@@ -127,7 +127,7 @@
 
     --reactist-bg-default: @bg !important;
     --reactist-bg-aside: @bg-dim !important;
-    --reactist-bg-menu: @bg-dim !important;
+    --reactist-bg-menu: @bg-alt !important;
     --reactist-bg-toast: @bg-alt !important;
     --reactist-bg-selected: @bg-act !important;
     --reactist-bg-highlight: fade(@ac, 15%) !important;
@@ -214,9 +214,9 @@
     --product-library-selectable-primary-selected-tint: @ac-hover !important;
 
     /* Borders */
-    --color-border: @bg-alt !important;
-    --color-border-subtle: @bg-act !important;
-    --border-subtle: @bg-alt !important;
+    --color-border: @bg-act !important;
+    --color-border-subtle: @bg-in !important;
+    --border-subtle: @bg-act !important;
     --border-default: @bg-act !important;
 
     --reactist-inputs-idle: @bg-act !important;
@@ -270,6 +270,25 @@
     --product-library-actionable-quaternary-on-dark-hover-fill: @bg-alt !important;
     --product-library-actionable-focus-fill: @bg-alt !important;
     --reactist-actionable-focus-fill: @bg-alt !important;
+
+    /* Menu item hover + popup borders */
+    --reactist-actionable-secondary-hover-fill: @bg-act !important;
+    --reactist-actionable-secondary-idle-tint: @fg !important;
+    --reactist-actionable-secondary-hover-tint: @fg !important;
+    --product-library-actionable-secondary-hover-fill: @bg-act !important;
+    --product-library-actionable-secondary-idle-tint: @fg !important;
+    --product-library-actionable-secondary-hover-tint: @fg !important;
+    --reactist-popover-border: @bg-act !important;
+    --reactist-dialog-border: @bg-act !important;
+    --reactist-menu-border: @bg-act !important;
+
+    /* Menu item hover — overrides hardcoded reactist styles */
+    [role="menu"] [role="menuitem"]:hover,
+    [role="menu"] [role="menuitem"]:focus,
+    [role="menubar"] [role="menuitem"]:hover,
+    [role="menubar"] [role="menuitem"]:focus {
+      background-color: @bg-act !important;
+    }
 
     /* Tertiary/brand actions */
     --reactist-actionable-tertiary-idle-tint: @ac !important;
